@@ -1,0 +1,37 @@
+body {
+    background-color: brown;
+}
+
+
+.Aufnahmestapel{
+    height: 200px;
+    width: 100px;
+    background-color: rgb(250, 246, 246);
+    border: 50px;
+    margin: 50px;
+}
+
+.Ablagestapel{
+    height: 200px;
+    width: 100px;
+    background-color: rgb(250, 246, 246);
+    margin:50px;
+    border:50px;
+}
+
+p[class*="Herz"]{
+    background-color: red;
+}
+
+p[class*="Pik"]{
+    background-color: black;
+    color: white;
+}
+
+p[class*="Kreuz"]{
+    background-color: grey;
+}
+
+p[class*="Karo"]{
+    background-color: darkred;
+}
