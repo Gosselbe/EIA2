@@ -1,3 +1,14 @@
+/*
+Aufgabe: task2 Maumau
+Name: Bente Gossel
+Matrikel: 260304
+Datum: 07.04.2019
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Bearbeitung in Zusammenarbeit mit Sina Haas und Julian Schubert
+*/
+
+
 let KE: number
 
 function kartenAusgeben(): number {
