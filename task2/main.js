@@ -1,3 +1,12 @@
+/*
+Aufgabe: task2 Maumau
+Name: Bente Gossel
+Matrikel: 260304
+Datum: 07.04.2019
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Bearbeitung in Zusammenarbeit mit Sina Haas und Julian Schubert
+*/
 let KE;
 function kartenAusgeben() {
     let KartenEingeben = prompt("Handkarten Anzahl Eingeben bitte");
@@ -6,53 +15,42 @@ function kartenAusgeben() {
 }
 kartenAusgeben();
 //kartenAusgeben();
-let KartenArt = ["Herz", "Pik", "Kreuz", "Karo"];
-let KartenNummer = ["7", "8", "9", "10", "Bube", "Dame", "König", "Ass"];
-let Kartenvariante0;
-let Kartenvariante1;
-let Kartenvariante2;
-let Kartenvariante3;
-let Kartenstapel = [];
+let kartenart = ["Herz", "Pik", "Kreuz", "Karo"];
+let kartennummer = ["7", "8", "9", "10", "Bube", "Dame", "König", "Ass"];
+let kartenvariante0;
+let kartenvariante1;
+let kartenvariante2;
+let kartenvariante3;
+let kartenstapel = [];
 function alleKarten() {
     let i;
-    for (i = 0; i <= KartenNummer.length - 1; i++) {
-        Kartenvariante0 = KartenArt[0] + KartenNummer[i];
-        Kartenvariante1 = KartenArt[1] + KartenNummer[i];
-        Kartenvariante2 = KartenArt[2] + KartenNummer[i];
-        Kartenvariante3 = KartenArt[3] + KartenNummer[i];
-        Kartenstapel.push(Kartenvariante0, Kartenvariante1, Kartenvariante2, Kartenvariante3);
+    for (i = 0; i <= kartennummer.length - 1; i++) {
+        kartenvariante0 = kartenart[0] + kartennummer[i];
+        kartenvariante1 = kartenart[1] + kartennummer[i];
+        kartenvariante2 = kartenart[2] + kartennummer[i];
+        kartenvariante3 = kartenart[3] + kartennummer[i];
+        kartenstapel.push(kartenvariante0, kartenvariante1, kartenvariante2, kartenvariante3);
     }
 }
 alleKarten();
-let Handkarten = [];
-/*function zufälligeKarte() {
-    for (let y = KE; Handkarten.length <= y - 1;) {
-        let x: number = 0;; { //x ist zufällig generierte ZAhl
-            x = Math.floor((Math.random() * Kartenstapel.length));
+let handkarten = [];
+/*function kartenSort() { //Karten sortieren funktion
+    if (document.getElementById("button").clicked == true)
+        handkarten.sort();
+}
 
-            let prodElement = document.createElement('div');
-            let kartenhand: string = `<p>${Kartenstapel[x]}</p>`
-
-            prodElement.innerHTML = kartenhand;
-            document.getElementById("Handkarten").appendChild(prodElement);
-
-            Handkarten.push(Kartenstapel[x]);
-
-            Kartenstapel.splice(x, 1);
-        }
-    }
-}*/
+handkarten.sort()*/
 let x;
-function zufälligeKarte() {
+function zufaelligeKarte() {
     for (let y = 0; y < KE; y++) {
-        x = Math.floor((Math.random() * Kartenstapel.length));
+        x = Math.floor((Math.random() * kartenstapel.length));
         let prodElement = document.createElement('div');
         document.getElementById("Handkarten").appendChild(prodElement);
-        Handkarten.push(Kartenstapel[x]);
-        let karte = `<p class="${Handkarten[y]}">${Handkarten[y]}</p>`;
+        handkarten.push(kartenstapel[x]);
+        let karte = `<p class="${handkarten[y]}">${handkarten[y]}</p>`;
         prodElement.innerHTML = karte;
-        Kartenstapel.splice(x, 1);
+        kartenstapel.splice(x, 1);
     }
 }
-zufälligeKarte();
+zufaelligeKarte();
 //# sourceMappingURL=main.js.map
