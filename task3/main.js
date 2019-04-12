@@ -208,7 +208,7 @@ var task3;
     function writeHTML(_y) {
         let prodElement = document.createElement('div');
         document.getElementById("Handkarten").appendChild(prodElement);
-        let neuekarte = `<p class="${handkarten[_y].kartenart}">${handkarten[_y].kartenart}${handkarten[_y].kartennummer}</p>`;
+        let neuekarte = `<p class="${handkarten[_y].kartenart}" id="${kartenstapel[_y].hochzaehlen}">${handkarten[_y].kartenart}${handkarten[_y].kartennummer}</p>`;
         prodElement.innerHTML = neuekarte;
     }
     function writeHTML2(_x) {
@@ -230,7 +230,6 @@ var task3;
         ;
         return 0;
     }
-    console.log(handkarten);
     let x;
     function zufaelligeKarte() {
         for (let y = 0; y < KE; y++) {
@@ -245,18 +244,42 @@ var task3;
     function handkartenSortieren() {
         handkarten.sort(vergleich);
         document.getElementById("Handkarten").innerHTML = "";
-        for (let s; s < handkarten.length; s++) {
+        for (let s = 0; s < handkarten.length; s++) {
             writeHTML(s);
         }
     }
     document.getElementById("Nachziehstapel").addEventListener("click", kartenAufnehmen);
+    document.body.addEventListener("keydown", space);
+    function space(event) {
+        if (event.keyCode == 32) {
+            kartenAufnehmen();
+        }
+    }
     function kartenAufnehmen() {
         let x = Math.floor((Math.random() * kartenstapel.length));
         handkarten.push(kartenstapel[x]);
         writeHTML2(x);
         kartenstapel.splice(x, 1);
     }
-    //let ablagestapel: string[] = [];
-    //handkartenAblegen()
+    let ablagestapel = [];
+    document.getElementById("Handkarten").addEventListener("click", handkartenAblegen);
+    function handkartenAblegen(event) {
+        let anclickenfesthalten = event.target;
+        for (let d = 0; d < handkarten.length; d++) {
+            if (handkarten[d].hochzaehlen == Number(anclickenfesthalten.getAttribute("id"))) {
+                ablagestapel.push(handkarten[d]);
+                console.log(ablagestapel);
+                let prodElement = document.createElement('div');
+                document.getElementById("Ablagestapel").appendChild(prodElement);
+                let neuekarte = `<p class="${handkarten[d].kartenart}" id="${handkarten[d].hochzaehlen}">${handkarten[d].kartenart}${handkarten[d].kartennummer}</p>`;
+                prodElement.innerHTML = neuekarte;
+                handkarten.splice(d, 1);
+                document.getElementById("Handkarten").innerHTML = "";
+                for (let z = 0; z < handkarten.length; z++) {
+                    writeHTML(z);
+                }
+            }
+        }
+    }
 })(task3 || (task3 = {}));
 //# sourceMappingURL=main.js.map

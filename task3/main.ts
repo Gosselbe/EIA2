@@ -257,19 +257,19 @@ namespace task3 {
 
     function writeHTML(_y: number) {
         
-        let prodElement = document.createElement('div')
+        let prodElement = document.createElement('div');
 
         document.getElementById("Handkarten").appendChild(prodElement);
 
 
-        let neuekarte: string = `<p class="${handkarten[_y].kartenart}">${handkarten[_y].kartenart}${handkarten[_y].kartennummer}</p>`
+        let neuekarte: string = `<p class="${handkarten[_y].kartenart}" id="${kartenstapel[_y].hochzaehlen}">${handkarten[_y].kartenart}${handkarten[_y].kartennummer}</p>`
 
         prodElement.innerHTML = neuekarte;
     }
 
     function writeHTML2(_x: number) {
 
-        let prodElement = document.createElement('div')
+        let prodElement = document.createElement('div');
 
         document.getElementById("Handkarten").appendChild(prodElement);
 
@@ -297,7 +297,7 @@ namespace task3 {
 
     }
 
-    console.log(handkarten)
+    
 
     let x: number;
 
@@ -310,7 +310,7 @@ namespace task3 {
 
             writeHTML(y);
 
-            kartenstapel.splice(x, 1)
+            kartenstapel.splice(x, 1);
         }
     }
 
@@ -321,13 +321,20 @@ namespace task3 {
 
         handkarten.sort(vergleich);
         document.getElementById("Handkarten").innerHTML = "";
-        for (let s: number; s < handkarten.length; s++) {
+        for (let s: number=0; s < handkarten.length; s++) {
 
             writeHTML(s);
         }
     }
 
     document.getElementById("Nachziehstapel").addEventListener("click", kartenAufnehmen);
+    document.body.addEventListener("keydown", space);
+
+    function space(event: KeyboardEvent){
+        if(event.keyCode == 32){
+            kartenAufnehmen();
+        }
+    }
 
     function kartenAufnehmen() {
         let x: number = Math.floor((Math.random() * kartenstapel.length));
@@ -340,9 +347,36 @@ namespace task3 {
 
     }
 
-    //let ablagestapel: string[] = [];
+    let ablagestapel: Karte[] = [];
+    
+    document.getElementById("Handkarten").addEventListener("click", handkartenAblegen);
+    function handkartenAblegen(event:MouseEvent):void{
+        let anclickenfesthalten:HTMLElement=<HTMLElement>event.target;
+        for (let d:number=0; d<handkarten.length; d++){
+            if (handkarten[d].hochzaehlen == Number(anclickenfesthalten.getAttribute("id"))){
+                ablagestapel.push(handkarten[d]);
+                console.log(ablagestapel);
+                let prodElement = document.createElement('div');
 
-    //handkartenAblegen()
+                document.getElementById("Ablagestapel").appendChild(prodElement);
+        
+        
+                let neuekarte: string = `<p class="${handkarten[d].kartenart}" id="${handkarten[d].hochzaehlen}">${handkarten[d].kartenart}${handkarten[d].kartennummer}</p>`
+        
+                prodElement.innerHTML = neuekarte;
+
+                handkarten.splice(d,1);
+
+                document.getElementById("Handkarten").innerHTML="";
+
+                for(let  z:number=0; z<handkarten.length; z++){
+                    writeHTML(z);
+                }
+            }
+        }
+    }
+
+
 
 
 
