@@ -34,12 +34,10 @@ function alleKarten() {
 }
 alleKarten();
 let handkarten = [];
-/*function kartenSort() { //Karten sortieren funktion
-    if (document.getElementById("button").clicked == true)
-        handkarten.sort();
+document.getElementById("button").addEventListener("click", handkartenSortieren); //Eventlistener 
+function handkartenSortieren() {
+    handkarten.sort();
 }
-
-handkarten.sort()*/
 let x;
 function zufaelligeKarte() {
     for (let y = 0; y < KE; y++) {
@@ -53,4 +51,6 @@ function zufaelligeKarte() {
     }
 }
 zufaelligeKarte();
+let nachziehstapel = [];
+console.log(handkarten);
 //# sourceMappingURL=main.js.map

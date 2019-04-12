@@ -1,0 +1,94 @@
+body {
+    background-color: brown;
+}
+
+
+.Nachziehstapel{
+    height: 200px;
+    width: 150px;
+    background-color: rgb(250, 246, 246);
+    border: 50px;
+    margin: 50px;
+}
+
+.Ablagestapel{
+    height: 200px;
+    width: 150px;
+    background-color: rgb(250, 246, 246);
+    margin:50px;
+    border:50px;
+}
+
+/*p[class*="Herz"]{
+    background-color: red;
+    height: 200px;
+    width: 150px;
+    margin:50px;
+    border:50px;
+    float: left;
+}
+
+p[class*="Pik"]{
+    background-color: black;
+    color: white;
+    height: 200px;
+    width: 150px;
+    margin:50px;
+    border:50px;
+    float: left;
+}
+
+p[class*="Kreuz"]{
+    background-color: grey;
+    height: 200px;
+    width: 150px;
+    margin:50px;
+    border:50px;
+    float: left;
+}
+
+p[class*="Karo"]{
+    background-color: darkred;
+    height: 200px;
+    width: 150px;
+    margin:50px;
+    border:50px;
+    float: left;
+}*/
+
+.Herz{
+    background-color: red;
+    height: 200px;
+    width: 150px;
+    margin:50px;
+    border:50px;
+    float: left;
+}
+
+.Pik{
+    background-color: black;
+    color: white;
+    height: 200px;
+    width: 150px;
+    margin:50px;
+    border:50px;
+    float: left;
+}
+
+.Kreuz{
+    background-color: grey;
+    height: 200px;
+    width: 150px;
+    margin:50px;
+    border:50px;
+    float: left;
+}
+
+.Karo{
+    background-color: darkred;
+    height: 200px;
+    width: 150px;
+    margin:50px;
+    border:50px;
+    float: left;
+}

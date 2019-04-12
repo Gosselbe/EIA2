@@ -35,7 +35,7 @@ let kartenvariante3: string
 
 let kartenstapel: string[] = [];
 
-function alleKarten() {
+function alleKarten(): void {
     let i: number
     for (i = 0; i <= kartennummer.length - 1; i++) {
         kartenvariante0 = kartenart[0] + kartennummer[i];
@@ -53,17 +53,17 @@ alleKarten();
 let handkarten: string[] = [];
 
 
-/*function kartenSort() { //Karten sortieren funktion
-    if (document.getElementById("button").clicked == true)
-        handkarten.sort();
+document.getElementById("button").addEventListener("click" , handkartenSortieren); //Eventlistener 
+
+    function handkartenSortieren() {
+    handkarten.sort()        
 }
 
-handkarten.sort()*/
 
 
 let x: number
 
-function zufaelligeKarte() {
+function zufaelligeKarte(): void {
     for (let y = 0; y < KE; y++) {
         x = Math.floor((Math.random() * kartenstapel.length));
 
@@ -82,6 +82,8 @@ function zufaelligeKarte() {
 
 zufaelligeKarte();
 
+let nachziehstapel: string[] = [];
 
+console.log(handkarten);
 
 
