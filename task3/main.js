@@ -1,10 +1,10 @@
 var task3;
 (function (task3) {
     /*
-    Aufgabe: task2 Maumau
+    Aufgabe: task3 Maumau
     Name: Bente Gossel
     Matrikel: 260304
-    Datum: 07.04.2019
+    Datum: 14.04.2019
         
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
     Bearbeitung in Zusammenarbeit mit Sina Haas und Julian Schubert
@@ -176,31 +176,6 @@ var task3;
         return KE; //Rückgabewert
     }
     kartenAusgeben();
-    //kartenAusgeben();
-    /*let kartenart: string[] = ["Herz", "Pik", "Kreuz", "Karo"];
-    let kartennummer: string[] = ["7", "8", "9", "10", "Bube", "Dame", "König", "Ass"];
-    
-    let kartenvariante0: string
-    let kartenvariante1: string
-    let kartenvariante2: string
-    let kartenvariante3: string
-    
-    let kartenstapel: string[] = [];
-    
-    function alleKarten(): void {
-        let i: number
-        for (i = 0; i <= kartennummer.length - 1; i++) {
-            kartenvariante0 = kartenart[0] + kartennummer[i];
-            kartenvariante1 = kartenart[1] + kartennummer[i];
-            kartenvariante2 = kartenart[2] + kartennummer[i];
-            kartenvariante3 = kartenart[3] + kartennummer[i];
-    
-            kartenstapel.push(kartenvariante0, kartenvariante1, kartenvariante2, kartenvariante3);
-        }
-    
-    }
-    
-    alleKarten();*/
     let kartenstapel = [karte1, karte2, karte3, karte4, karte5, karte6, karte7, karte8, karte9, karte10, karte11, karte12, karte13, karte14,
         karte15, karte16, karte17, karte18, karte19, karte20, karte21, karte22, karte23, karte24, karte25, karte26, karte27,
         karte28, karte29, karte30, karte31, karte32];
@@ -208,7 +183,7 @@ var task3;
     function writeHTML(_y) {
         let prodElement = document.createElement('div');
         document.getElementById("Handkarten").appendChild(prodElement);
-        let neuekarte = `<p class="${handkarten[_y].kartenart}" id="${kartenstapel[_y].hochzaehlen}">${handkarten[_y].kartenart}${handkarten[_y].kartennummer}</p>`;
+        let neuekarte = `<p class="${handkarten[_y].kartenart}" id="${handkarten[_y].hochzaehlen}">${handkarten[_y].kartenart}${handkarten[_y].kartennummer}</p>`;
         prodElement.innerHTML = neuekarte;
     }
     function writeHTML2(_x) {
@@ -217,20 +192,6 @@ var task3;
         let neuekarte = `<p class="${kartenstapel[_x].kartenart}">${kartenstapel[_x].kartenart}${kartenstapel[_x].kartennummer}</p>`;
         prodElement.innerHTML = neuekarte;
     }
-    function vergleich(u, v) {
-        let kartenart1 = u.kartenart;
-        let kartenart2 = v.kartenart;
-        if (kartenart1 > kartenart2) {
-            return 1;
-        }
-        ;
-        if (kartenart1 < kartenart2) {
-            return -1;
-        }
-        ;
-        return 0;
-    }
-    let x;
     function zufaelligeKarte() {
         for (let y = 0; y < KE; y++) {
             x = Math.floor((Math.random() * kartenstapel.length));
@@ -248,6 +209,19 @@ var task3;
             writeHTML(s);
         }
     }
+    function vergleich(u, v) {
+        let kartenart1 = u.kartenart;
+        let kartenart2 = v.kartenart;
+        if (kartenart1 > kartenart2) {
+            return 1;
+        }
+        ;
+        if (kartenart1 < kartenart2) {
+            return -1;
+        }
+        ;
+        return 0;
+    }
     document.getElementById("Nachziehstapel").addEventListener("click", kartenAufnehmen);
     document.body.addEventListener("keydown", space);
     function space(event) {
@@ -255,6 +229,7 @@ var task3;
             kartenAufnehmen();
         }
     }
+    //let x: number;
     function kartenAufnehmen() {
         let x = Math.floor((Math.random() * kartenstapel.length));
         handkarten.push(kartenstapel[x]);
