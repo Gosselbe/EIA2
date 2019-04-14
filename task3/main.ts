@@ -310,13 +310,18 @@ namespace task3 {
     //let x: number;
 
     function kartenAufnehmen() {
+        if(kartenstapel.length > 0){
         let x: number = Math.floor((Math.random() * kartenstapel.length));
 
         handkarten.push(kartenstapel[x]);
 
         writeHTML2(x);
 
-        kartenstapel.splice(x, 1);
+        kartenstapel.splice(x, 1);}
+
+        else{
+            alert("Alle Karten aufgebraucht")
+        }
 
     }
 

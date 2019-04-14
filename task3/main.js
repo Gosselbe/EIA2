@@ -231,10 +231,15 @@ var task3;
     }
     //let x: number;
     function kartenAufnehmen() {
-        let x = Math.floor((Math.random() * kartenstapel.length));
-        handkarten.push(kartenstapel[x]);
-        writeHTML2(x);
-        kartenstapel.splice(x, 1);
+        if (kartenstapel.length > 0) {
+            let x = Math.floor((Math.random() * kartenstapel.length));
+            handkarten.push(kartenstapel[x]);
+            writeHTML2(x);
+            kartenstapel.splice(x, 1);
+        }
+        else{
+            alert("Alle Karten aufgebraucht");
+        }
     }
     let ablagestapel = [];
     document.getElementById("Handkarten").addEventListener("click", handkartenAblegen);
