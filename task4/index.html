@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <title>task4</title>
+</head>
+
+<body>
+    <h1>Schön, dass du da bist!</h1>
+    <fieldset id="0,90">
+        <legend> Suche dir deine Lieblingssorten aus 
+            <p>(Sorten 0,90€)</p></legend>
+        <input type="checkbox" name="sorte1" value="Schokolade" id="Schokolade" preis="0.90" />
+        <label for="sorte1">Schokolade</label>
+        <input type="checkbox" name="sorte2" value="check1" id="Soya Schokolade"  preis="0.90"/>
+        <label for="sorte2">Soya Schokolade</label>
+        <input type="checkbox" name="sorte2" value="check2" id="Vanille" preis="0.90"/>
+        <label for="sorte2">Vanille</label>
+        <input type="checkbox" name="sorte3" value="check3" id="Erdbeere" preis="0.90"/>
+        <label for="sorte3">Erdbeere</label>
+        <input type="checkbox" name="sorte4" value="check3" id="Banane" preis="0.90"/>
+        <label for="sorte4">Banane</label>
+        <input type="checkbox" name="sorte5" value="check3" id="Karamell" preis="0.90"/>
+        <label for="sorte5">Karamell</label>
+    </fieldset>
+
+    <fieldset>
+        <legend> Ohne ein bisschen Extravaganz macht das Leben keinen Spaß 
+            <p>(Toppings 0,30€)</p></legend>
+        <input type="checkbox" name="extra1" value="check1" id="Streusel" preis="0.30"/>
+        <label for="extra1">Streusel</label>
+        <input type="checkbox" name="extra2" value="check2" id="Schokosoße" preis="0.30"/>
+        <label for="extra2">Schokosoße</label>
+        <input type="checkbox" name="extra3" value="check3" id="Sahne" preis="0.30"/>
+        <label for="extra3">Sahne</label>
+        <input type="checkbox" name="extra4" value="check3" id="Bananenstücke" preis="0.30"/>
+        <label for="extra4">Bananenstücke</label>
+    </fieldset>
+
+
+    <fieldset>
+        <legend> Dareichungsform </legend>
+        <input type="radio" name="DF" value="form1" id="Waffel"/>
+        <label for="form1">Waffel</label>
+        <input type="radio" name="DF" value="form2" id="Waffelbecher"/>
+        <label for="form2">Waffelbecher</label>
+        <input type="radio" name="DF" value="form3" id="Pappbecher"/>
+        <label for="form3">Pappbecher</label>
+    </fieldset>
+
+    <fieldset>
+        <legend> Lieferoption </legend>
+        <input type="radio" name="LO" value="option1" id="Abholen" preis="0"/>
+        <label for="option1">Abholen</label>
+        <input type="radio" name="LO" value="option2" id="Fahrradkurier" preis="0"/>
+        <label for="option2">Fahrradkurier</label>
+    </fieldset>
+
+    <fieldset>
+        <legend> Adresse </legend>
+        <input id="Adresse" type="text" name="Text" placeholder="bitte eingeben" required />
+        <hr />
+        Postleitszahl
+        <input id="Postleitszahl" type="text" name="Pattern" pattern="[0-9]{5}" placeholder="bitte eingeben" required/>
+        <hr />
+
+
+        <div id= "Bestellung"></div>
+        <div id= "Bestellpreis">Gesamtpreis</div>
+
+        <button id="Button">Bestellung überprüfen</button>
+        
+        <script src=js/main.js></script>
+</body>
+
+</html>
