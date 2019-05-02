@@ -6,13 +6,14 @@ Datum: 26.04.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var task5;
-(function (task5) {
+var task6;
+(function (task6) {
     window.addEventListener("load", init); //sobald seite geladen führe init aus
     function init() {
-        fieldsetBauen(task5.ausfuellen);
+        fieldsetBauen(task6.ausfuellen);
         let fieldsets = document.getElementsByTagName("fieldset");
         document.getElementById("Button").addEventListener("click", pruefen);
+        document.getElementById("submit").addEventListener("click", korrekteAusgabe);
         for (let i = 0; i < fieldsets.length; i++) {
             let fieldset = fieldsets[i];
             fieldset.addEventListener("change", bestellung);
@@ -21,11 +22,12 @@ var task5;
     }
     function fieldsetBauen(_sorte) {
         for (let key in _sorte) {
-            let i = task5.ausfuellen[key]; //angabe, wo die schleife durchgehen soll, i wird mit keys gefüllt
+            let i = task6.ausfuellen[key]; //angabe, wo die schleife durchgehen soll, i wird mit keys gefüllt
             let fieldset = document.createElement("fieldset");
             let titel = document.createElement("legend");
             fieldset.appendChild(titel); //legend als child von fieldset festlegen
             document.body.appendChild(fieldset); //fieldset im body anhängen
+            document.getElementById("ausgabe").appendChild(fieldset);
             for (let k = 0; k < i.length; k++) {
                 let input = document.createElement("input");
                 let anzeige = document.createElement("HTML");
@@ -65,31 +67,39 @@ var task5;
         let ausgabe = `<p id="${summe}">${summe}€</p>`;
         prodElement.innerHTML = ausgabe;
     }
-})(task5 || (task5 = {}));
-function bestellung(_event) {
-    let inputsammlung = document.getElementsByTagName("input");
-    document.getElementById("Bestellung").innerHTML = "";
-    for (let f = 0; f < inputsammlung.length; f++) { //Kollection hat auch  eine Länge
-        if (inputsammlung[f].checked == true) {
-            let prodElement = document.createElement('p');
-            document.getElementById("Bestellung").appendChild(prodElement);
-            prodElement.innerHTML = inputsammlung[f].name;
+    function bestellung(_event) {
+        let inputsammlung = document.getElementsByTagName("input");
+        document.getElementById("Bestellung").innerHTML = "";
+        for (let f = 0; f < inputsammlung.length; f++) { //Kollection hat auch  eine Länge
+            if (inputsammlung[f].checked == true) {
+                let prodElement = document.createElement('p');
+                document.getElementById("Bestellung").appendChild(prodElement);
+                prodElement.innerHTML = inputsammlung[f].name;
+            }
+            if (inputsammlung[f].type == "number" && Number(inputsammlung[f].value) > 0) {
+                let prodElement = document.createElement('p');
+                document.getElementById("Bestellung").appendChild(prodElement);
+                prodElement.innerHTML = inputsammlung[f].name;
+            }
         }
-        if (inputsammlung[f].type == "number" && Number(inputsammlung[f].value) > 0) {
-            let prodElement = document.createElement('p');
-            document.getElementById("Bestellung").appendChild(prodElement);
-            prodElement.innerHTML = inputsammlung[f].name;
+    }
+    function pruefen() {
+        let adresse = document.getElementById("Adresse");
+        let postleitszahl = document.getElementById("Postleitszahl");
+        if (adresse.value == "" || postleitszahl.value == "") {
+            alert("Bitte noch Adresse hinzufügen, sonst finden wir dich nicht :(");
+        }
+        else {
+            alert("Dein Eis ist schon unterwegs");
         }
     }
-}
-function pruefen() {
-    let adresse = document.getElementById("Adresse");
-    let postleitszahl = document.getElementById("Postleitszahl");
-    if (adresse.value == "" || postleitszahl.value == "") {
-        alert("Bitte noch Adresse hinzufügen, sonst finden wir dich nicht :(");
+    function korrekteAusgabe(_event) {
+        let inputsammlung = document.getElementsByTagName("input");
+        for (let f = 0; f < inputsammlung.length; f++) { //Kollection hat auch  eine Länge
+            if (inputsammlung[f].checked == true) {
+                inputsammlung[f].setAttribute("value", "1");
+            }
+        }
     }
-    else {
-        alert("Dein Eis ist schon unterwegs");
-    }
-}
+})(task6 || (task6 = {}));
 //# sourceMappingURL=main.js.map

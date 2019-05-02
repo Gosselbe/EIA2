@@ -10,8 +10,15 @@
 </head>
 
 <body>
+
+
+
+
+    <form action="https://eia2bgossel.herokuapp.com/" method="get">
     <script src=js/data.js></script>
     <script src=js/main.js></script>
+
+    <div id="ausgabe"></div>
 
     <fieldset>
         <legend> Dareichungsform </legend>
@@ -33,10 +40,10 @@
 
     <fieldset>
         <legend> Adresse </legend>
-        <input id="Adresse" type="text" name="Text" placeholder="bitte eingeben" required />
+        <input id="Adresse" type="text" name="Adresse" placeholder="bitte eingeben" required />
         <hr />
         Postleitszahl
-        <input id="Postleitszahl" type="text" name="Pattern" pattern="[0-9]{5}" placeholder="bitte eingeben" required />
+        <input id="Postleitszahl" type="text" name="Postleitszahl" pattern="[0-9]{5}" placeholder="bitte eingeben" required />
         <hr />
 
 
@@ -45,6 +52,9 @@
 
         <button id="Button">Bestellung überprüfen</button>
 
-</body>
 
+        <button id="submit" type="submit">Submit</button>
+
+</body>
+</form>
 </html>

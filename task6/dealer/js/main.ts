@@ -18,10 +18,12 @@ namespace task6 {
 
         let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
         document.getElementById("Button").addEventListener("click", pruefen);
+        document.getElementById("submit").addEventListener("click", korrekteAusgabe)
         for (let i: number = 0; i < fieldsets.length; i++) {
             let fieldset: HTMLFieldSetElement = fieldsets[i];
             fieldset.addEventListener("change", bestellung);
             fieldset.addEventListener("change", preisBerechnen);
+    
         }
 
     }
@@ -35,6 +37,7 @@ namespace task6 {
 
             fieldset.appendChild(titel) //legend als child von fieldset festlegen
             document.body.appendChild(fieldset); //fieldset im body anhängen
+            document.getElementById("ausgabe").appendChild(fieldset);
             for (let k: number = 0; k < i.length; k++) {
                 let input: HTMLInputElement = document.createElement("input");
                 let anzeige: HTMLElement = document.createElement("HTML")
@@ -78,36 +81,47 @@ namespace task6 {
 
         prodElement.innerHTML = ausgabe;
     }
-}
 
-function bestellung(_event: Event): void {
-    let inputsammlung: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-    document.getElementById("Bestellung").innerHTML = "";
-    for (let f: number = 0; f < inputsammlung.length; f++) { //Kollection hat auch  eine Länge
-        if (inputsammlung[f].checked == true) {
-            let prodElement: HTMLElement = document.createElement('p');
-            document.getElementById("Bestellung").appendChild(prodElement);
-            prodElement.innerHTML = inputsammlung[f].name;
+
+    function bestellung(_event: Event): void {
+        let inputsammlung: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+        document.getElementById("Bestellung").innerHTML = "";
+        for (let f: number = 0; f < inputsammlung.length; f++) { //Kollection hat auch  eine Länge
+            if (inputsammlung[f].checked == true) {
+                let prodElement: HTMLElement = document.createElement('p');
+                document.getElementById("Bestellung").appendChild(prodElement);
+                prodElement.innerHTML = inputsammlung[f].name;
+            }
+            if (inputsammlung[f].type == "number" && Number(inputsammlung[f].value) > 0) {
+                let prodElement: HTMLElement = document.createElement('p');
+                document.getElementById("Bestellung").appendChild(prodElement);
+                prodElement.innerHTML = inputsammlung[f].name;
+            }
         }
-        if(inputsammlung[f].type =="number" && Number(inputsammlung[f].value)>0){
-            let prodElement: HTMLElement = document.createElement('p');
-            document.getElementById("Bestellung").appendChild(prodElement);
-            prodElement.innerHTML = inputsammlung[f].name;
+    }
+
+    function pruefen(): void {
+
+        let adresse: HTMLInputElement = <HTMLInputElement>document.getElementById("Adresse");
+        let postleitszahl: HTMLInputElement = <HTMLInputElement>document.getElementById("Postleitszahl");
+
+        if (adresse.value == "" || postleitszahl.value == "") {
+            alert("Bitte noch Adresse hinzufügen, sonst finden wir dich nicht :(")
+        }
+
+        else {
+            alert("Dein Eis ist schon unterwegs")
         }
     }
-}
 
-function pruefen(): void {
+    function korrekteAusgabe(_event:Event):void{
+        let inputsammlung: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+        for (let f: number = 0; f < inputsammlung.length; f++) { //Kollection hat auch  eine Länge
+            if (inputsammlung[f].checked == true) {
+                inputsammlung[f].setAttribute("value","1");
+            }
 
-    let adresse: HTMLInputElement = <HTMLInputElement>document.getElementById("Adresse");
-    let postleitszahl: HTMLInputElement = <HTMLInputElement>document.getElementById("Postleitszahl");
-
-    if (adresse.value == "" || postleitszahl.value == "") {
-        alert("Bitte noch Adresse hinzufügen, sonst finden wir dich nicht :(")
+        }
     }
-
-    else {
-        alert("Dein Eis ist schon unterwegs")
-    }
+   
 }
-    //pruefen()

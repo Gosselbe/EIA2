@@ -1,6 +1,6 @@
-var task5;
-(function (task5) {
-    task5.ausfuellen = {
+var task6;
+(function (task6) {
+    task6.ausfuellen = {
         "sorten": [
             { ueberschrift: "Sorten", preis: 0.90, name: "Schokolade", type: "number", min: 0, max: "6", step: 1, value: 0 },
             { ueberschrift: "Sorten", preis: 0.90, name: "Soya Schokolade", type: "number", min: 0, max: "6", step: 1, value: 0 },
@@ -13,5 +13,5 @@ var task5;
             { ueberschrift: "Zusätze", preis: 0.20, name: "Sahne", type: "checkbox", min: 0, max: "0", step: 0, value: 0 }
         ]
     };
-})(task5 || (task5 = {}));
+})(task6 || (task6 = {}));
 //# sourceMappingURL=data.js.map
