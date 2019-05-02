@@ -1,8 +1,8 @@
 /*
-Aufgabe: task 05 Eisdealer
+Aufgabe: task 06 Eisdealer
 Name: Bente Gossel
 Matrikel: 260304
-Datum: 26.04.2019
+Datum: 02.05.2019
 	
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
