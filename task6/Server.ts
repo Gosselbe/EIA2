@@ -17,7 +17,7 @@ namespace L05_Server { //Namespace für Aufgabe
 
 	function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {//_request speichert die eingehende Nachricht vom Port, _response speichert die Antwort des Servers, function handleRequest vom Typ void 
 		console.log("I hear voices!");//in der Console wird "I hear voices!" ausgegeben
-
+		console.log(_request.url);
 		_response.setHeader("content-type", "text/html; charset=utf-8");//URL wird für response definiert mit gegebenen Anforderungen
 		_response.setHeader("Access-Control-Allow-Origin", "*");//Server kann auch von anderer Quelle als der Hauptseite von aufgerufen werden
 
@@ -25,4 +25,6 @@ namespace L05_Server { //Namespace für Aufgabe
 
 		_response.end();//Response wird an Client geschickt, wird geschlossen
 	}
+
+	
 }
