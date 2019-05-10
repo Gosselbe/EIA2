@@ -123,7 +123,7 @@ namespace task7 {
 
     function anzeige(_event: Event): void {
         let inputsammlung: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let url: string = "http://eia2bgossel.herokuapp.com/?"  //Infos starten hinter Fragezeichen
+        let url: string = "https://eia2bgossel.herokuapp.com/?"  //Infos starten hinter Fragezeichen
         let anzeige: string = "";
         for (let i: number = 0; i < inputsammlung.length; i++) {
             if (inputsammlung[i].value != "0" && inputsammlung[i].type != "radio") { //ausgabe für Sorte
@@ -145,7 +145,7 @@ namespace task7 {
 
     function sendRequestWithCustomData(_anzeige:string): void {//code aus sendData
         let xhr: XMLHttpRequest = new XMLHttpRequest();
-        let url: string = "http://eia2bgossel.herokuapp.com/?"
+        let url: string = "https://eia2bgossel.herokuapp.com/?"
         xhr.open("GET", url+ _anzeige );
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();

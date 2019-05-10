@@ -104,7 +104,7 @@ var task7;
     }
     function anzeige(_event) {
         let inputsammlung = document.getElementsByTagName("input");
-        let url = "http://eia2bgossel.herokuapp.com/?"; //Infos starten hinter Fragezeichen
+        let url = "https://eia2bgossel.herokuapp.com/?"; //Infos starten hinter Fragezeichen
         let anzeige = "";
         for (let i = 0; i < inputsammlung.length; i++) {
             if (inputsammlung[i].value != "0" && inputsammlung[i].type != "radio") { //ausgabe für Sorte
@@ -125,7 +125,7 @@ var task7;
     }
     function sendRequestWithCustomData(_anzeige) {
         let xhr = new XMLHttpRequest();
-        let url = "http://eia2bgossel.herokuapp.com/?";
+        let url = "https://eia2bgossel.herokuapp.com/?";
         xhr.open("GET", url + _anzeige);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
