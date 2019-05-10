@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <title>task7</title>
+</head>
+
+<body>
+
+    <script src=js/data.js></script>
+    <script src=js/main.js></script>
+    <script src=senddata/SendData.js></script>
+
+    <div id="ausgabe"></div>
+
+    <fieldset>
+        <legend> Dareichungsform </legend>
+        <input type="radio" name="DF" value="Waffel" id="Waffel" />
+        <label for="form1">Waffel</label>
+        <input type="radio" name="DF" value="Waffelbecher" id="Waffelbecher" />
+        <label for="form2">Waffelbecher</label>
+        <input type="radio" name="DF" value="Pappbecher" id="Pappbecher" />
+        <label for="form3">Pappbecher</label>
+    </fieldset>
+
+    <fieldset>
+        <legend> Lieferoption </legend>
+        <input type="radio" name="LO" value="Abholen" id="Abholen" preis="0" />
+        <label for="option1">Abholen</label>
+        <input type="radio" name="LO" value="Fahrradkurier" id="Fahrradkurier" preis="0" />
+        <label for="option2">Fahrradkurier</label>
+    </fieldset>
+
+    <fieldset>
+        <legend> Adresse </legend>
+        <input id="Adresse" type="text" name="Adresse" placeholder="bitte eingeben" required />
+        <hr />
+        Postleitszahl
+        <input id="Postleitszahl" type="text" name="Postleitszahl" pattern="[0-9]{5}" placeholder="bitte eingeben" required />
+        <hr />
+
+
+        <div id="Bestellung"></div>
+        <div id="Bestellpreis">Gesamtpreis</div>
+        <div id="fassung"></div>
+
+        <button id="Button">Bestellung überprüfen</button>
+
+
+        <button id="submit" type="submit">Submit</button>
+
+        <button id="asyncron">Asyncron</button>
+
+</body>
+</html>
