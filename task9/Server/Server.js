@@ -37,8 +37,8 @@ function handleRequest(_request, _response) {
             Database.findAll(findCallback);
             break;
         case "finde": //case die Suchen aufführt
-            let finde = query["finde"];
-            Database.search(findCallback, finde);
+            let suche = query["finde"];
+            Database.search(findCallback, suche);
             break;
         default:
             respond(_response, "unknown command: " + command);
