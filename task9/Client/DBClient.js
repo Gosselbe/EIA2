@@ -22,9 +22,9 @@ var DBClient;
         sendRequest(query, handleInsertResponse);
     }
     function finde(_event) {
-        let input = document.getElementsByTagName("input");
+        let input = document.getElementById("matrikelnummer");
         let query = "command=finde";
-        query += "&finde=" + input[3].value;
+        query += "&finde=" + input.value;
         console.log(query);
         sendRequest(query, handleFindeResponse);
     }

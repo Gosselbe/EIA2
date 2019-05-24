@@ -25,9 +25,9 @@ namespace DBClient {
     }
 
     function finde(_event: Event):void{//Matrikelnummer aus Inputfeld an Server schicekn
-        let input: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+        let input: HTMLInputElement = <HTMLInputElement> document.getElementById("matrikelnummer");
         let query: string ="command=finde";
-        query += "&finde=" + input[3].value;
+        query += "&finde=" + input.value;
         console.log(query);
         sendRequest(query, handleFindeResponse);
     }
