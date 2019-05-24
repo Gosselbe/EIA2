@@ -26,7 +26,7 @@ var DBClient;
         let query = "comand=finde";
         query += "&finde" + input[0].value;
         console.log(query);
-        sendRequest(query, handleFindResponse);
+        sendRequest(query, handleFindeResponse);
     }
     function refresh(_event) {
         let query = "command=refresh";
@@ -42,6 +42,15 @@ var DBClient;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             alert(xhr.response);
+        }
+    }
+    function handleFindeResponse(_event) {
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            let output = document.getElementsByTagName("textarea")[0];
+            output.value = xhr.response;
+            let responseAsJson = JSON.parse(xhr.response);
+            console.log(responseAsJson);
         }
     }
     function handleFindResponse(_event) {
