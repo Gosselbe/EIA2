@@ -7,7 +7,7 @@ namespace DBClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let submitButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("matrikelnummer");
+        let submitButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         submitButton.addEventListener("click", finde); //eventlistener für HTML Button
@@ -26,8 +26,8 @@ namespace DBClient {
 
     function finde(_event: Event):void{//Matrikelnummer aus Inputfeld an Server schicekn
         let input: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let query: string ="comand=finde";
-        query += "&finde" + input[0].value;
+        let query: string ="command=finde";
+        query += "&finde=" + input[3].value;
         console.log(query);
         sendRequest(query, handleFindeResponse);
     }

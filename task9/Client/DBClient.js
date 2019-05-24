@@ -7,7 +7,7 @@ var DBClient;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        let submitButton = document.getElementById("matrikelnummer");
+        let submitButton = document.getElementById("button");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         submitButton.addEventListener("click", finde); //eventlistener für HTML Button
@@ -23,8 +23,8 @@ var DBClient;
     }
     function finde(_event) {
         let input = document.getElementsByTagName("input");
-        let query = "comand=finde";
-        query += "&finde" + input[0].value;
+        let query = "command=finde";
+        query += "&finde=" + input[3].value;
         console.log(query);
         sendRequest(query, handleFindeResponse);
     }
