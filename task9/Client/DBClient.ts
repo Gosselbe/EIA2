@@ -29,7 +29,7 @@ namespace DBClient {
         let query: string ="command=finde";
         query += "&finde=" + input.value;
         console.log(query);
-        sendRequest(query, handleFindeResponse);
+        sendRequest(query, handleFindResponse);
     }
 
     function refresh(_event: Event): void {
@@ -51,7 +51,7 @@ namespace DBClient {
         }
     }
 
-    function handleFindeResponse(_event:ProgressEvent):void {
+    /*function handleFindeResponse(_event:ProgressEvent):void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
@@ -59,7 +59,7 @@ namespace DBClient {
             let responseAsJson: JSON = JSON.parse(xhr.response);
             console.log(responseAsJson);
         }
-    }
+    }*/
 
     function handleFindResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);

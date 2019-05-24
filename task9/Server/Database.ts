@@ -67,11 +67,11 @@ export function search(_callback: Function, _finde: string): void {
     students.find({ "matrikel": matrikelnummer }).toArray(prepareAnswer);
 
 
-function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
-    if (_e)
-        _callback("Error" + _e);
-    else
-        _callback(JSON.stringify(studentArray));
-}
+    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            _callback(JSON.stringify(studentArray));
+    }
 }
 

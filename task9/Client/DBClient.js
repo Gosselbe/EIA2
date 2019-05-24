@@ -26,7 +26,7 @@ var DBClient;
         let query = "command=finde";
         query += "&finde=" + input.value;
         console.log(query);
-        sendRequest(query, handleFindeResponse);
+        sendRequest(query, handleFindResponse);
     }
     function refresh(_event) {
         let query = "command=refresh";
@@ -44,15 +44,15 @@ var DBClient;
             alert(xhr.response);
         }
     }
-    function handleFindeResponse(_event) {
-        let xhr = _event.target;
+    /*function handleFindeResponse(_event:ProgressEvent):void {
+        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output = document.getElementsByTagName("textarea")[0];
+            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
-            let responseAsJson = JSON.parse(xhr.response);
+            let responseAsJson: JSON = JSON.parse(xhr.response);
             console.log(responseAsJson);
         }
-    }
+    }*/
     function handleFindResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
