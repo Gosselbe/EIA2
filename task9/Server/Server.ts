@@ -45,7 +45,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "refresh":
             Database.findAll(findCallback);
             break;
-        case "search"://case die Suchen aufführt
+        case "finde"://case die Suchen aufführt
             let finde: string = query["finde"];
             Database.search (findCallback, finde);
             break;
