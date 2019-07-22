@@ -2,9 +2,9 @@ namespace endabgabe {
     //let serverAddress: string = "http://localhost:8100/";
     let serverAddress: string = "https://eia2bgossel.herokuapp.com/";
 
-    export function insert(_event: Event): void {
+    export function insert(): void {
         let query: string = "command=insert";
-        query += "&name=" + enterName + "&Pukte"+ highscore;
+        query += "&name=" + enterName + "&Punkte"+ highscore;
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }

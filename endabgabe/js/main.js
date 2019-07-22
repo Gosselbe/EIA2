@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const Database_1 = require("../Server/Database");
 var endabgabe;
 (function (endabgabe) {
     document.addEventListener("DOMContentLoaded", init);
@@ -36,26 +33,26 @@ var endabgabe;
             let y = Math.random() * endabgabe.canvas.height - 300;
         }
         for (let i = 0; i < 11; i++) { //Schleife für kleine Fische
-            let fish1 = new FischClass(Math.random(), Math.random());
+            let fish1 = new endabgabe.FischClass(Math.random(), Math.random());
             FishArray.push(fish1);
         }
         for (let i = 0; i < 2; i++) { //Schleife für große Fische
-            let fish2 = new FischClass1(Math.random());
+            let fish2 = new endabgabe.FischClass1(Math.random());
             FishArray.push(fish2);
         }
-        for (let i = 0; i < 2; i++) { //SChleife für super große Fische
-            let fish3 = new FischClass2(endabgabe.canvas.width - Math.random(), Math.random());
+        for (let i = 0; i < 2; i++) { //Schleife für super große Fische
+            let fish3 = new endabgabe.FischClass2(endabgabe.canvas.width - Math.random(), Math.random());
             FishArray.push(fish3);
         }
         for (let i = 0; i < 10; i++) { //Schleife für große Bubbles
-            let bubble = new BubbleClass(Math.random(), Math.random());
+            let bubble = new endabgabe.BubbleClass(Math.random(), Math.random());
             FishArray.push(bubble);
         }
         for (let i = 0; i < 19; i++) { //schleife für kleine Bubbles
-            let bubble1 = new BubbleClass1(Math.random(), Math.random());
+            let bubble1 = new endabgabe.BubbleClass1(Math.random(), Math.random());
             FishArray.push(bubble1);
         }
-        endabgabe.mainfish = new MainFish(400, 300); //Mainfisch pushen
+        endabgabe.mainfish = new endabgabe.MainFish(400, 300); //Mainfisch pushen
         FishArray.push(endabgabe.mainfish);
         update();
     }
@@ -94,7 +91,7 @@ var endabgabe;
             }
         }
     }
-    let highscore = 0;
+    endabgabe.highscore = 0;
     function eat() {
         for (let i = 0; i < FishArray.length; i++) {
             let abstandx = FishArray[i].x - endabgabe.mainfish.x;
@@ -106,12 +103,12 @@ var endabgabe;
                 endabgabe.mainfish.dotSize += 1;
                 FishArray.splice(i, 1);
                 console.log("wachse");
-                highscore += 10;
+                endabgabe.highscore += 10;
                 endabgabe.mainfish.flo2x += 2;
                 endabgabe.mainfish.flo3x += 2;
                 endabgabe.mainfish.flo2y += 2;
                 endabgabe.mainfish.flo3y += 2;
-                let fish1 = new FischClass(Math.random(), Math.random()); //neuer kleiner Fisch 
+                let fish1 = new endabgabe.FischClass(Math.random(), Math.random()); //neuer kleiner Fisch 
                 FishArray.push(fish1);
             }
             else if (FishArray[i].type == 1 && FishArray[i] != endabgabe.mainfish && abstand < 35 && endabgabe.mainfish.size > 20) { //Fressen von großen Bubbles
@@ -120,12 +117,12 @@ var endabgabe;
                 endabgabe.mainfish.dotSize += 0.5;
                 FishArray.splice(i, 1);
                 console.log("wachseBubble");
-                highscore += 3;
+                endabgabe.highscore += 3;
                 endabgabe.mainfish.flo2x += 1;
                 endabgabe.mainfish.flo3x += 1;
                 endabgabe.mainfish.flo2y += 1;
                 endabgabe.mainfish.flo3y += 1;
-                let bubble = new BubbleClass(Math.random(), Math.random()); //neue große Bubble
+                let bubble = new endabgabe.BubbleClass(Math.random(), Math.random()); //neue große Bubble
                 FishArray.push(bubble);
             }
             else if (FishArray[i].type == 2 && FishArray[i] != endabgabe.mainfish && abstand < 35 && endabgabe.mainfish.size > 10) { //Fressen von kleinen Bubbles
@@ -134,12 +131,12 @@ var endabgabe;
                 endabgabe.mainfish.dotSize += 0.5;
                 FishArray.splice(i, 1);
                 console.log("wachseBubbleKlein");
-                highscore += 3;
+                endabgabe.highscore += 3;
                 endabgabe.mainfish.flo2x += 1;
                 endabgabe.mainfish.flo3x += 1;
                 endabgabe.mainfish.flo2y += 1;
                 endabgabe.mainfish.flo3y += 1;
-                let bubble1 = new BubbleClass1(Math.random(), Math.random()); //neue kleine Bubble
+                let bubble1 = new endabgabe.BubbleClass1(Math.random(), Math.random()); //neue kleine Bubble
                 FishArray.push(bubble1);
             }
             else if (FishArray[i].type == 4 && FishArray[i] != endabgabe.mainfish && abstand < 35 && endabgabe.mainfish.size > 60) { //Fressen von großen Fischen
@@ -148,12 +145,12 @@ var endabgabe;
                 endabgabe.mainfish.dotSize += 0.5;
                 FishArray.splice(i, 1);
                 console.log("wachseBubbleKlein");
-                highscore += 15;
+                endabgabe.highscore += 15;
                 endabgabe.mainfish.flo2x += 4;
                 endabgabe.mainfish.flo3x += 4;
                 endabgabe.mainfish.flo2y += 4;
                 endabgabe.mainfish.flo3y += 4;
-                let fish2 = new FischClass1(Math.random()); //neuer großer Fisch
+                let fish2 = new endabgabe.FischClass1(Math.random()); //neuer großer Fisch
                 FishArray.push(fish2);
             }
             else if (FishArray[i].type == 5 && FishArray[i] != endabgabe.mainfish && abstand < 35 && endabgabe.mainfish.size > 90) { //Fressen von super großen Fischen
@@ -162,20 +159,20 @@ var endabgabe;
                 endabgabe.mainfish.dotSize += 0.5;
                 FishArray.splice(i, 1);
                 console.log("wachseBubbleKlein");
-                highscore += 20;
+                endabgabe.highscore += 20;
                 endabgabe.mainfish.flo2x += 1;
                 endabgabe.mainfish.flo3x += 1;
                 endabgabe.mainfish.flo2y += 1;
                 endabgabe.mainfish.flo3y += 1;
-                let fish3 = new FischClass2(endabgabe.canvas.width - Math.random(), Math.random()); //neuer super großer Fisch
+                let fish3 = new endabgabe.FischClass2(endabgabe.canvas.width - Math.random(), Math.random()); //neuer super großer Fisch
                 FishArray.push(fish3);
             }
-            else if (FishArray[i].type == 4 && abstand < 35 && endabgabe.mainfish.size < 60 && FishArray[i].type != 3) { //Game over bei großem Fisch
+            else if (FishArray[i].type == 4 && abstand < 50 && endabgabe.mainfish.size < 60 && FishArray[i].type != 3) { //Game over bei großem Fisch
                 alert("GAME OVER!");
                 console.log("stirb");
                 ichSterbe();
             }
-            else if (FishArray[i].type == 5 && abstand < 35 && endabgabe.mainfish.size < 90 && FishArray[i].type != 3) { //Game over bei super großem Fisch
+            else if (FishArray[i].type == 5 && abstand < 50 && endabgabe.mainfish.size < 90 && FishArray[i].type != 3) { //Game over bei super großem Fisch
                 alert("GAME OVER!");
                 console.log("stirbSuperFisch");
                 ichSterbe();
@@ -183,7 +180,7 @@ var endabgabe;
             document.getElementById("Zahl").innerHTML = ""; //Highscore erstellen
             let prodElement = document.createElement("div");
             document.getElementById("Zahl").appendChild(prodElement);
-            prodElement.innerHTML = highscore.toString();
+            prodElement.innerHTML = endabgabe.highscore.toString();
         }
     }
     function zeitFestlegen() {
@@ -191,8 +188,8 @@ var endabgabe;
     }
     function ichSterbe() {
         window.clearTimeout(stopCanvas);
-        endabgabe.enterName = prompt(highscore + "gib deinen Namen ein");
-        Database_1.insert();
+        endabgabe.enterName = prompt("Dein Highscore ist" + " " + endabgabe.highscore + ". " + "Gib deinen Namen ein!");
+        endabgabe.insert();
     }
     endabgabe.ichSterbe = ichSterbe;
     function water() {

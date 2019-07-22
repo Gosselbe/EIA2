@@ -11,6 +11,7 @@ namespace endabgabe {
     let imageData: ImageData;
     export let mainfish: MainFish;
     let stopCanvas: number;
+    export let enterName: string;
 
     function init() {
         canvas = document.getElementsByTagName("canvas")[0];
@@ -52,7 +53,7 @@ namespace endabgabe {
             let fish2: FischClass1 = new FischClass1(Math.random());
             FishArray.push(fish2);
         }
-        for (let i: number = 0; i < 2; i++) { //SChleife für super große Fische
+        for (let i: number = 0; i < 2; i++) { //Schleife für super große Fische
             let fish3: FischClass2 = new FischClass2(canvas.width - Math.random(), Math.random());
             FishArray.push(fish3);
         }
@@ -195,12 +196,12 @@ namespace endabgabe {
                 let fish3: FischClass2 = new FischClass2(canvas.width - Math.random(), Math.random()); //neuer super großer Fisch
                 FishArray.push(fish3);
             }
-            else if (FishArray[i].type == 4 && abstand < 35 && mainfish.size < 60 && FishArray[i].type != 3) { //Game over bei großem Fisch
+            else if (FishArray[i].type == 4 && abstand < 50 && mainfish.size < 60 && FishArray[i].type != 3) { //Game over bei großem Fisch
                 alert("GAME OVER!");
                 console.log("stirb");
                 ichSterbe();
             }
-            else if (FishArray[i].type == 5 && abstand < 35 && mainfish.size < 90 && FishArray[i].type != 3) { //Game over bei super großem Fisch
+            else if (FishArray[i].type == 5 && abstand < 50 && mainfish.size < 90 && FishArray[i].type != 3) { //Game over bei super großem Fisch
                 alert("GAME OVER!");
                 console.log("stirbSuperFisch");
                 ichSterbe();
@@ -215,10 +216,11 @@ namespace endabgabe {
     function zeitFestlegen(): void {
         stopCanvas = window.setTimeout(update, 1000 / fps);
     }
-    export let enterName: string;
+    
+
     export function ichSterbe(): void {
         window.clearTimeout(stopCanvas);
-        enterName=prompt(highscore+"gib deinen Namen ein");
+        enterName=prompt("Dein Highscore ist"+ " "+ highscore +". "+"Gib deinen Namen ein!");
         insert();
     }
 

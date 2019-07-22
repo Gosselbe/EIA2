@@ -1,9 +1,4 @@
 "use strict";
-/**
- * Simple server managing between client and database
- * @author: Jirka Dell'Oro-Friedl
- * @adapted: Lukas Scheuerle
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Url = require("url");
@@ -25,12 +20,11 @@ function handleRequest(_request, _response) {
     let command = query["command"];
     switch (command) {
         case "insert":
-            let student = {
+            let gamer = {
                 name: query["name"],
-                firstname: query["firstname"],
-                matrikel: parseInt(query["matrikel"])
+                punkt: parseInt(query["Punkte"])
             };
-            Database.insert(student);
+            Database.insert(gamer);
             respond(_response, "storing data");
             break;
         case "refresh":

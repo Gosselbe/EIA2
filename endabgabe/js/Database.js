@@ -1,16 +1,11 @@
 "use strict";
-/**
- * Simple database insertion and query for MongoDB
- * @author: Jirka Dell'Oro-Friedl
- * @adapted: Lukas Scheuerle
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Mongo = require("mongodb");
 console.log("Database starting");
 let databaseURL = "mongodb://localhost:27017";
 let databaseName = "test";
 let db;
-let students;
+let gamer;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     // databaseURL = "mongodb+srv://username:password@hostname:port/database";
@@ -26,12 +21,12 @@ function handleConnect(_e, _client) {
     else {
         console.log("Connected to database!");
         db = _client.db(databaseName);
-        students = db.collection("students");
+        gamer = db.collection("Highscore");
     }
 }
 function insert(_doc) {
     // try insertion then activate callback "handleInsert"
-    students.insertOne(_doc, handleInsert);
+    gamer.insertOne(_doc, handleInsert);
 }
 exports.insert = insert;
 // insertion-handler receives an error object as standard parameter
@@ -41,8 +36,8 @@ function handleInsert(_e) {
 // try to fetch all documents from database, then activate callback
 function findAll(_callback) {
     // cursor points to the retreived set of documents in memory
-    var cursor = students.find();
-    console.log(students.find());
+    var cursor = gamer.find();
+    console.log(gamer.find());
     // try to convert to array, then activate callback "prepareAnswer"
     cursor.toArray(prepareAnswer);
     // toArray-handler receives two standard parameters, an error object and the array
@@ -58,7 +53,7 @@ function findAll(_callback) {
 exports.findAll = findAll;
 function search(_callback, _finde) {
     let matrikelnummer = Number(_finde);
-    students.find({ "matrikel": matrikelnummer }).toArray(prepareAnswer);
+    gamer.find({ "matrikel": matrikelnummer }).toArray(prepareAnswer);
     function prepareAnswer(_e, studentArray) {
         if (_e)
             _callback("Error" + _e);

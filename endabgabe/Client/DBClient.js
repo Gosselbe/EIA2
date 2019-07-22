@@ -2,15 +2,13 @@ var endabgabe;
 (function (endabgabe) {
     //let serverAddress: string = "http://localhost:8100/";
     let serverAddress = "https://eia2bgossel.herokuapp.com/";
-    function insert(_event) {
-        let inputs = document.getElementsByTagName("input");
+    function insert() {
         let query = "command=insert";
-        query += "&name=" + inputs[0].value;
-        query += "&firstname=" + inputs[1].value;
-        query += "&matrikel=" + inputs[2].value;
+        query += "&name=" + endabgabe.enterName + "&Punkte" + endabgabe.highscore;
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
+    endabgabe.insert = insert;
     function finde(_event) {
         let input = document.getElementById("matrikelnummer");
         let query = "command=finde";

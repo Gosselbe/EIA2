@@ -3,8 +3,8 @@ var endabgabe;
     class BubbleClass1 extends endabgabe.Bewegung {
         constructor(_x, _y) {
             super();
-            this.x = _x * canvas.width;
-            this.y = _y * canvas.height;
+            this.x = _x * endabgabe.canvas.width;
+            this.y = _y * endabgabe.canvas.height;
             this.dx = _x * 0;
             this.dy = _y * -10;
             this.type = 2;
@@ -12,9 +12,9 @@ var endabgabe;
         draw() {
             let bub1 = new Path2D();
             bub1.arc(this.x, this.y, 10, 0, 2 * Math.PI);
-            zweid.fillStyle = "DodgerBlue";
-            zweid.fill(bub1);
-            zweid.stroke(bub1);
+            endabgabe.zweid.fillStyle = "DodgerBlue";
+            endabgabe.zweid.fill(bub1);
+            endabgabe.zweid.stroke(bub1);
         }
         update() {
             this.move();

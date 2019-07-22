@@ -5,7 +5,7 @@ console.log("Database starting");
 let databaseURL: string = "mongodb://localhost:27017";
 let databaseName: string = "test";
 let db: Mongo.Db;
-let students: Mongo.Collection;
+let gamer: Mongo.Collection;
 
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
@@ -24,13 +24,13 @@ function handleConnect(_e: Mongo.MongoError, _client: Mongo.MongoClient): void {
     else {
         console.log("Connected to database!");
         db = _client.db(databaseName);
-        students = db.collection("Highscore");
-    }
+        gamer = db.collection("Highscore");
+    } 
 }
 
 export function insert(_doc: Gamer): void {
     // try insertion then activate callback "handleInsert"
-    students.insertOne(_doc, handleInsert);
+    gamer.insertOne(_doc, handleInsert);
 }
 
 // insertion-handler receives an error object as standard parameter
@@ -41,8 +41,8 @@ function handleInsert(_e: Mongo.MongoError): void {
 // try to fetch all documents from database, then activate callback
 export function findAll(_callback: Function): void {
     // cursor points to the retreived set of documents in memory
-    var cursor: Mongo.Cursor = students.find();
-    console.log(students.find());
+    var cursor: Mongo.Cursor = gamer.find();
+    console.log(gamer.find());
     // try to convert to array, then activate callback "prepareAnswer"
     cursor.toArray(prepareAnswer);
 
@@ -59,7 +59,7 @@ export function findAll(_callback: Function): void {
 
 export function search(_callback: Function, _finde: string): void {
     let matrikelnummer: number = Number(_finde);
-    students.find({ "matrikel": matrikelnummer }).toArray(prepareAnswer);
+    gamer.find({ "matrikel": matrikelnummer }).toArray(prepareAnswer);
 
 
     function prepareAnswer(_e: Mongo.MongoError, studentArray: Gamer[]): void {
