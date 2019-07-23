@@ -2,7 +2,7 @@ canvas{
     float:left;
 }
 
-div{
+.eins{
     float: right;
     text-align: center;
     font-size: 20px;
@@ -10,6 +10,20 @@ div{
     border: 3px solid black;
     padding: 20px;
     margin:50px;
+}
+
+.zwei{
+    float: right;
+    text-align: center;
+    font-size: 16px;
+    background-color:LightSkyBlue;
+    border: 3px solid black;
+    padding: 5px;
+    margin:50px;
+}
+
+#Zahl{
+    border:none;
 }
 
 body{

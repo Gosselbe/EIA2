@@ -9,13 +9,6 @@ var endabgabe;
         sendRequest(query, handleInsertResponse);
     }
     endabgabe.insert = insert;
-    function finde(_event) {
-        let input = document.getElementById("matrikelnummer");
-        let query = "command=finde";
-        query += "&finde=" + input.value;
-        console.log(query);
-        sendRequest(query, handleFindResponse);
-    }
     function refresh() {
         let query = "command=refresh";
         sendRequest(query, handleFindResponse);
@@ -51,6 +44,13 @@ var endabgabe;
                 console.log(SpielerKomplett[i].punkt);
             }
             console.log(SpielerKomplett);
+            for (let i = 0; i < 6; i++) {
+                //Highscore erstellen
+                let prodElement = document.createElement("div");
+                document.getElementById("anzeige").appendChild(prodElement);
+                prodElement.innerHTML = `<div>${SpielerKomplett[i].name} : ${SpielerKomplett[i].punkt}</div>`;
+                console.log(SpielerKomplett[i].name);
+            }
         }
     }
     function vergleicheEintraege(a, b) {

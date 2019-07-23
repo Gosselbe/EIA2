@@ -14,12 +14,12 @@ var endabgabe;
         sand();
         crab(20, 4);
         endabgabe.refresh();
-        for (let k = 0; k < 20; k++) {
+        for (let k = 0; k < 50; k++) {
             let x = Math.random() * endabgabe.canvas.width;
             let y = Math.random() * endabgabe.canvas.height + 300;
             plant(x, y);
         }
-        for (let n = 0; n < 20; n++) {
+        for (let n = 0; n < 50; n++) {
             let x = Math.random() * endabgabe.canvas.width;
             let y = Math.random() * endabgabe.canvas.height + 300;
             plant1(x, y);
@@ -183,7 +183,7 @@ var endabgabe;
                 console.log("stirbSuperFisch");
                 ichSterbe();
             }
-            else if (FishArray[i].type == 6 && abstand < 170 && endabgabe.mainfish.size < 900 && FishArray[i].type != 3) { //Game over bei giganto großem Fisch
+            else if (FishArray[i].type == 6 && abstand < 200 && endabgabe.mainfish.size < 900 && FishArray[i].type != 3) { //Game over bei giganto großem Fisch
                 alert("GAME OVER!");
                 console.log("stirbGigantoFisch");
                 ichSterbe();
@@ -325,7 +325,7 @@ var endabgabe;
         plant1.lineTo(x + 205, y + 200);
         plant1.lineTo(x + 220, y + 200);
         plant1.closePath();
-        endabgabe.zweid.fillStyle = "DarkSeaGreen";
+        endabgabe.zweid.fillStyle = "OliveDrab";
         endabgabe.zweid.fill(plant1);
         endabgabe.zweid.stroke(plant1);
     }

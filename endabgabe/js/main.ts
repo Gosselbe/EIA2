@@ -20,13 +20,13 @@ namespace endabgabe {
         crab(20, 4);
         refresh();
 
-        for (let k: number = 0; k < 20; k++) {
+        for (let k: number = 0; k < 50; k++) {
             let x: number = Math.random() * canvas.width;
             let y: number = Math.random() * canvas.height + 300;
             plant(x, y)
         }
 
-        for (let n: number = 0; n < 20; n++) {
+        for (let n: number = 0; n < 50; n++) {
             let x: number = Math.random() * canvas.width;
             let y: number = Math.random() * canvas.height + 300;
             plant1(x, y)
@@ -210,7 +210,7 @@ namespace endabgabe {
                 console.log("stirbSuperFisch");
                 ichSterbe();
             }
-            else if (FishArray[i].type == 6 && abstand < 170 && mainfish.size < 900 && FishArray[i].type != 3) { //Game over bei giganto großem Fisch
+            else if (FishArray[i].type == 6 && abstand < 200 && mainfish.size < 900 && FishArray[i].type != 3) { //Game over bei giganto großem Fisch
                 alert("GAME OVER!");
                 console.log("stirbGigantoFisch");
                 ichSterbe();
@@ -380,7 +380,7 @@ namespace endabgabe {
         plant1.lineTo(x + 205, y + 200);
         plant1.lineTo(x + 220, y + 200)
         plant1.closePath();
-        zweid.fillStyle = "DarkSeaGreen";
+        zweid.fillStyle = "OliveDrab";
         zweid.fill(plant1);
         zweid.stroke(plant1);
     }

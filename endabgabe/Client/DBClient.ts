@@ -9,14 +9,6 @@ namespace endabgabe {
         sendRequest(query, handleInsertResponse);
     }
 
-    function finde(_event: Event): void {//Matrikelnummer aus Inputfeld an Server schicekn
-        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelnummer");
-        let query: string = "command=finde";
-        query += "&finde=" + input.value;
-        console.log(query);
-        sendRequest(query, handleFindResponse);
-    }
-
     export function refresh(): void {
         let query: string = "command=refresh";
         sendRequest(query, handleFindResponse);
@@ -55,7 +47,14 @@ namespace endabgabe {
                 console.log(SpielerKomplett[i].punkt);
             }
             console.log(SpielerKomplett);
-            
+            for (let i: number = 0; i < 6; i++) {
+                //Highscore erstellen
+                let prodElement = document.createElement("div");
+                document.getElementById("anzeige").appendChild(prodElement);
+                prodElement.innerHTML = `<div>${SpielerKomplett[i].name} : ${SpielerKomplett[i].punkt}</div>`;
+                console.log(SpielerKomplett[i].name);
+            }
+
         }
     }
 
