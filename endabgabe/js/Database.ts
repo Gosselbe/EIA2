@@ -1,4 +1,3 @@
-
 import * as Mongo from "mongodb";
 console.log("Database starting");
 

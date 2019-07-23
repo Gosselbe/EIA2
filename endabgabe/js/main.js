@@ -7,11 +7,13 @@ var endabgabe;
     let imageData;
     let stopCanvas;
     function init() {
+        alert("Spieleanleitung: Hallo Spieler. Mit den Pfeiltasten kannst du den kleinen grünen Fisch durch die Unterwasserwelt steuern. Fresse kleine Fische und Luftblasen. Aber pass auf! Alle Fische die größer sind als du können dich fressen. Und nimm dich vor dem orangenen Fisch in acht, ihn kannst du nicht besiegen. Viel Erfolg und guten Appetit!");
         endabgabe.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe.zweid = endabgabe.canvas.getContext("2d");
         water();
         sand();
         crab(20, 4);
+        endabgabe.refresh();
         for (let k = 0; k < 20; k++) {
             let x = Math.random() * endabgabe.canvas.width;
             let y = Math.random() * endabgabe.canvas.height + 300;
@@ -41,8 +43,12 @@ var endabgabe;
             FishArray.push(fish2);
         }
         for (let i = 0; i < 2; i++) { //Schleife für super große Fische
-            let fish3 = new endabgabe.FischClass2(endabgabe.canvas.width - Math.random(), Math.random());
+            let fish3 = new endabgabe.FischClass2(Math.random());
             FishArray.push(fish3);
+        }
+        for (let i = 0; i < 1; i++) { //Schleife für giganto große Fische
+            let fish4 = new endabgabe.FischClass3(Math.random());
+            FishArray.push(fish4);
         }
         for (let i = 0; i < 10; i++) { //Schleife für große Bubbles
             let bubble = new endabgabe.BubbleClass(Math.random(), Math.random());
@@ -164,7 +170,7 @@ var endabgabe;
                 endabgabe.mainfish.flo3x += 1;
                 endabgabe.mainfish.flo2y += 1;
                 endabgabe.mainfish.flo3y += 1;
-                let fish3 = new endabgabe.FischClass2(endabgabe.canvas.width - Math.random(), Math.random()); //neuer super großer Fisch
+                let fish3 = new endabgabe.FischClass2(Math.random()); //neuer super großer Fisch
                 FishArray.push(fish3);
             }
             else if (FishArray[i].type == 4 && abstand < 50 && endabgabe.mainfish.size < 60 && FishArray[i].type != 3) { //Game over bei großem Fisch
@@ -175,6 +181,11 @@ var endabgabe;
             else if (FishArray[i].type == 5 && abstand < 50 && endabgabe.mainfish.size < 90 && FishArray[i].type != 3) { //Game over bei super großem Fisch
                 alert("GAME OVER!");
                 console.log("stirbSuperFisch");
+                ichSterbe();
+            }
+            else if (FishArray[i].type == 6 && abstand < 170 && endabgabe.mainfish.size < 900 && FishArray[i].type != 3) { //Game over bei giganto großem Fisch
+                alert("GAME OVER!");
+                console.log("stirbGigantoFisch");
                 ichSterbe();
             }
             document.getElementById("Zahl").innerHTML = ""; //Highscore erstellen
